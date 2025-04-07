@@ -1,0 +1,25 @@
+<!-- dashboard/plataforma.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plataforma Financeira</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <h1>Bem-vindo à Plataforma</h1>
+  <div>
+    <input type="text" id="mesReferencia" placeholder="Mês/Ano (ex: 04/2025)">
+    <input type="number" id="gastoCartao" placeholder="Gastos no Cartão">
+    <input type="number" id="gastoFeira" placeholder="Gastos com Feira">
+    <input type="number" id="investimentos" placeholder="Investimentos">
+    <button onclick="salvarHistorico()">Salvar</button>
+  </div>
+  <div id="relatorio"></div>
+  <canvas id="graficoDesempenho"></canvas>
+  <button onclick="exportarPDF()">Exportar PDF</button>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script type="module" src="../assets/js/plataforma.js"></script>
+</body>
+</html>
