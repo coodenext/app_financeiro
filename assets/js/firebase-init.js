@@ -1,15 +1,13 @@
-// assets/js/firebase-init.js
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "SUA_AUTH_DOMAIN",
-  projectId: "SEU_PROJECT_ID",
-  storageBucket: "SEU_STORAGE_BUCKET",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID"
+  apiKey: "AIzaSyDVPqguUyZrVXpma3JW6WD_AgAInTknHeQ",
+  authDomain: "plataforma-financeira-2d541.firebaseapp.com",
+  projectId: "plataforma-financeira-2d541",
+  storageBucket: "plataforma-financeira-2d541.appspot.com",
+  messagingSenderId: "322627837971",
+  appId: "1:322627837971:web:615f3caba0d93aa0911fe6"
 };
 
 const app = initializeApp(firebaseConfig);
