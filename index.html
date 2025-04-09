@@ -1,13 +1,29 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Login Plataforma Financeira</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/assets/css/indexstyle.css" />
 </head>
-<body>
-  <h1>Bem-vindo</h1>
-  <a href="auth/login.html">Login</a> | <a href="auth/cadastro.html">Cadastro</a>
+<body class="auth-body">
+  <div class="auth-container">
+    <!-- Sua logomarca -->
+    <img src="/assets/img/logo.jpg" alt="Logomarca" class="logo" />
+    
+    <!-- Formulário de login -->
+    <form id="loginForm" class="auth-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="senha" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Link para cadastro -->
+    <p class="link-text">
+      Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
+    </p>
+  </div>
+
+  <script type="module" src="../assets/js/login.js"></script>
 </body>
 </html>
