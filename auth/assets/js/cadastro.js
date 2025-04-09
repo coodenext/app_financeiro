@@ -1,6 +1,8 @@
+// Importa os módulos do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
+// Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDVPqguUyZrVXpma3JW6WD_AgAInTknHeQ",
   authDomain: "plataforma-financeira-2d541.firebaseapp.com",
@@ -10,11 +12,13 @@ const firebaseConfig = {
   appId: "1:322627837971:web:615f3caba0d93aa0911fe6"
 };
 
+// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Evento de cadastro
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("loginForm");
+  const form = document.getElementById("cadastroForm");
 
   if (form) {
     form.addEventListener("submit", async (e) => {
@@ -24,12 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const senha = document.getElementById("senha").value;
 
       try {
-        await signInWithEmailAndPassword(auth, email, senha);
-        alert("Login bem-sucedido!");
-        window.location.href = "../dashboard/plataforma.html";
+        await createUserWithEmailAndPassword(auth, email, senha);
+        alert("Usuário cadastrado com sucesso!");
+        window.location.href = "login.html";
       } catch (error) {
-        console.error("Erro de login:", error);
-        alert("Erro ao fazer login: " + error.message);
+        alert("Erro ao cadastrar: " + error.message);
       }
     });
   }
