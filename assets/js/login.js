@@ -19,7 +19,8 @@ loginForm.addEventListener("submit", async (e) => {
     console.log("Login bem-sucedido:", user);
 
     // Redireciona para o painel principal
-    window.location.href = "/app_financeiro/dashboard/plataforma.html";
+    // Supondo que você esteja no arquivo: app_financeiro/auth/login/index.html
+window.location.href = '../../dashboard/plataforma/index.html';
   } catch (error) {
     console.error("Erro no login:", error.code, error.message);
     alert("Email ou senha incorretos. Tente novamente.");
