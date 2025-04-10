@@ -3,23 +3,25 @@
 import { auth } from "./firebase-init.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("loginForm");
+// Escutando o envio do formulário
+const loginForm = document.getElementById("loginForm");
 
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-      const email = document.getElementById("email").value;
-      const senha = document.getElementById("senha").value;
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
 
-      try {
-        await signInWithEmailAndPassword(auth, email, senha);
-        alert("Login realizado com sucesso!");
-        window.location.href = "../dashboard/plataforma.html"; // Redireciona para a plataforma
-      } catch (error) {
-        alert("Erro ao fazer login: " + error.message);
-      }
-    });
+  try {
+    // Tenta fazer login com email e senha
+    const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+    const user = userCredential.user;
+    console.log("Login bem-sucedido:", user);
+
+    // Redireciona para o painel principal
+    window.location.href = "/app_financeiro/dashboard/plataforma.html";
+  } catch (error) {
+    console.error("Erro no login:", error.code, error.message);
+    alert("Email ou senha incorretos. Tente novamente.");
   }
 });
