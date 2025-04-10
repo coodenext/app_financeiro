@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
   <link rel="stylesheet" href="/app_financeiro/assets/css/style.css" />
-<script src="/app_financeiro/assets/js/login.js"></script>
-<link rel="stylesheet" href="/assets/css/loginstyle.css" />
+  <link rel="stylesheet" href="/app_financeiro/assets/css/loginstyle.css" />
 </head>
 <body class="auth-body">
   <div class="auth-container">
-    <img src="/assets/img/logo.png" alt="Logomarca" class="logo" />
+    <img src="/app_financeiro/assets/img/logo/logo.png" alt="Logomarca" class="logo" />
     
     <form id="loginForm" class="auth-form">
       <h2>Login</h2>
@@ -18,12 +17,12 @@
       <input type="password" id="senha" placeholder="Senha" required />
       <button type="submit">Entrar</button>
       <p class="link-text">
-        Não tem conta? <a href="/auth/cadastro.html">Cadastre-se</a>
+        Não tem conta? <a href="/app_financeiro/auth/cadastro/index.html">Cadastre-se</a>
       </p>
     </form>
   </div>
-  
-  <script src="/app_financeiro/assets/js/login.js"></script>
-  <script type="module" src="../assets/js/login.js"></script>  
+
+  <!-- Carregando como módulo -->
+  <script type="module" src="./assets/js/login.js"></script>
 </body>
 </html>

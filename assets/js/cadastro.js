@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         await createUserWithEmailAndPassword(auth, email, senha);
         alert("Usuário cadastrado com sucesso!");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
       } catch (error) {
         alert("Erro ao cadastrar: " + error.message);
       }
