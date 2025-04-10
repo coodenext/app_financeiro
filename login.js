@@ -13,7 +13,7 @@ loginForm.addEventListener('submit', (e) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Redireciona para dashboard
-      window.location.href = "/app_financeiro/dashboard/index.html";
+      window.location.href = "plataforma.html";
     })
     .catch((error) => {
       alert("Erro ao fazer login: " + error.message);

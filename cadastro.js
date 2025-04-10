@@ -18,14 +18,25 @@ const auth = getAuth(app);
 
 // Evento de cadastro
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("cadastroForm");
+  const form = document.getElementById("cadastro-form");
 
   if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
 
       const email = document.getElementById("email").value;
       const senha = document.getElementById("senha").value;
+      const confirmarSenha = document.getElementById("confirmar-senha").value;
+      const erroSenha = document.getElementById("erro-senha");
+
+      // Validação das senhas
+      if (senha !== confirmarSenha) {
+        erroSenha.textContent = "As senhas não coincidem.";
+        erroSenha.style.display = "block";
+        return;
+      } else {
+        erroSenha.style.display = "none";
+      }
 
       try {
         await createUserWithEmailAndPassword(auth, email, senha);
