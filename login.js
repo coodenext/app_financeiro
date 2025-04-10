@@ -7,8 +7,8 @@ const loginForm = document.getElementById('loginForm'); // com "F" maiúsculo
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const email = loginForm['email'].value;
-  const password = loginForm['password'].value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {

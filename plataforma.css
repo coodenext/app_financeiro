@@ -1,11 +1,34 @@
-/* style.css - Dashboard principal */
-
+/* Inicio do botão SAIR DA PLATAFORMA */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f6f9;
   color: #333;
 }
+
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.btn-logout {
+  padding: 10px 20px;
+  background-color: #f01811;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #c9302c;
+}
+/* Final do Botão SAIR DA PLATAFORMA*/
+
 
 header {
   background: #3f51b5;

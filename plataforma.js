@@ -1,5 +1,5 @@
-// dashboard.js
-
+import { auth } from './firebase-init.js';
+import { signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 import jsPDF from "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
@@ -18,6 +18,37 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Aguarda o carregamento do DOM
+document.addEventListener("DOMContentLoaded", () => {
+  // Botão de logout
+  const btnLogout = document.getElementById("btnLogout");
+  if (btnLogout) {
+    btnLogout.addEventListener("click", () => {
+      signOut(auth)
+        .then(() => {
+          window.location.href = 'login.html';
+        })
+        .catch((error) => {
+          alert("Erro ao sair: " + error.message);
+        });
+    });
+  }
+
+  // Exportar PDF
+  const btnExportar = document.getElementById("exportarPdf");
+  if (btnExportar) {
+    btnExportar.addEventListener("click", () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text("Relatório Financeiro", 10, 10);
+      doc.save("relatorio.pdf");
+    });
+  }
+
+  // Chamada de carregamento de dados
+  carregarGastos();
+});
+
 // Exemplo: buscar dados da coleção "gastos"
 async function carregarGastos() {
   const querySnapshot = await getDocs(collection(db, "gastos"));
@@ -25,14 +56,3 @@ async function carregarGastos() {
     console.log(`${doc.id} =>`, doc.data());
   });
 }
-
-// Simples geração de PDF
-document.getElementById("exportarPdf").addEventListener("click", () => {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.text("Relatório Financeiro", 10, 10);
-  doc.save("relatorio.pdf");
-});
-
-// Chamada inicial de carregamento
-carregarGastos();

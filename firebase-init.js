@@ -3,13 +3,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "SEU_DOMINIO.firebaseapp.com",
-  projectId: "SEU_PROJETO_ID",
-  storageBucket: "SEU_BUCKET.appspot.com",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SUA_APP_ID"
+  apiKey: "AIzaSyDVPqguUyZrVXpma3JW6WD_AgAInTknHeQ",
+  authDomain: "plataforma-financeira-2d541.firebaseapp.com",
+  projectId: "plataforma-financeira-2d541",
+  storageBucket: "plataforma-financeira-2d541.appspot.com",
+  messagingSenderId: "322627837971",
+  appId: "1:322627837971:web:615f3caba0d93aa0911fe6"
 };
+
 
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
