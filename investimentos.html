@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meus Investimentos</title>
+  <link rel="stylesheet" href="estilo.css" /> <!-- Coloque seu CSS aqui -->
+</head>
+<body>
+  <header>
+    <h1>Meus Investimentos</h1>
+    <button id="btnVoltar">Voltar</button>
+  </header>
+
+  <main>
+    <section id="investimentosContainer">
+      <h2>Investimentos cadastrados</h2>
+      <div id="listaInvestimentos">
+        <p>Carregando investimentos...</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { db, auth } from './firebase-init.js';
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    // Garante que só usuários logados acessem
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        carregarInvestimentos();
+      }
+    });
+
+    // Função para exibir os investimentos
+    async function carregarInvestimentos() {
+      const lista = document.getElementById("listaInvestimentos");
+      lista.innerHTML = "";
+
+      const querySnapshot = await getDocs(collection(db, "investimentos"));
+
+      if (querySnapshot.empty) {
+        lista.innerHTML = "<p>Nenhum investimento encontrado.</p>";
+        return;
+      }
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const item = document.createElement("div");
+        item.classList.add("item-investimento");
+        item.innerHTML = `
+          <strong>${data.nome}</strong><br>
+          Valor: R$ ${data.valor.toFixed(2)}<br>
+          Mês: ${data.mes}
+        `;
+        lista.appendChild(item);
+      });
+    }
+
+    // Botão de voltar
+    const btnVoltar = document.getElementById("btnVoltar");
+    btnVoltar.addEventListener("click", () => {
+      window.location.href = "index.html"; // Página principal
+    });
+  </script>
+</body>
+</html>

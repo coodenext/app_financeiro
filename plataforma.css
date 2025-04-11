@@ -1,4 +1,56 @@
-/* Inicio do botão SAIR DA PLATAFORMA */
+    /* Estilo modernizado da seção de investimentos */
+    .form-investimento {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .form-investimento button {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .form-investimento input {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .form-investimento button {
+      background-color: #002fec;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-investimento button:hover {
+      background-color: #2f49b5;
+    }
+
+    .btn-ver-investimentos {
+      display: inline-block;
+      background-color: #3b5bdb;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-ver-investimentos:hover {
+      background-color: #2f49b5;
+    }
+
+    .divider {
+      border-top: 1px solid #ddd;
+      margin: 20px 0;
+    }
+
+/* Reset básico e estilos gerais */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,13 +58,65 @@ body {
   color: #333;
 }
 
-.footer {
-  margin-top: 50px;
-  padding: 20px;
+/* Cabeçalho */
+header {
+  background: #3f51b5;
+  color: white;
+  padding: 1rem;
   text-align: center;
-  background-color: #f8f9fa;
+  font-size: 1.8rem;
 }
 
+/* Conteúdo principal */
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Seções */
+.secao, section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: #3f51b5;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+/* Botões */
+button {
+  padding: 0.7rem 1.2rem;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #303f9f;
+}
+
+/* Botão de logout */
 .btn-logout {
   padding: 10px 20px;
   background-color: #f01811;
@@ -27,53 +131,28 @@ body {
 .btn-logout:hover {
   background-color: #c9302c;
 }
-/* Final do Botão SAIR DA PLATAFORMA*/
 
-
-header {
-  background: #3f51b5;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.8rem;
-}
-
-main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
-section {
-  background: white;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-h2 {
-  color: #3f51b5;
-  margin-top: 0;
-}
-
-button {
-  padding: 0.7rem 1.2rem;
-  background-color: #3f51b5;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #303f9f;
-}
-
-footer {
+/* Rodapé */
+.footer, footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
   color: #999;
+  background-color: #f8f9fa;
+  margin-top: 50px;
+}
+
+/* Investimentos */
+.item-investimento {
+  background: #e3f2fd;
+  padding: 10px;
+  border-left: 4px solid #2196f3;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Gráficos */
+canvas {
+  width: 100%;
+  height: 300px;
 }

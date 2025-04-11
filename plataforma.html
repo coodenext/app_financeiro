@@ -13,49 +13,65 @@
     <p>Organize suas finanças, visualize gráficos e planeje seu futuro com facilidade!</p>
   </header>
 
-  <main>
-    <section id="resumo">
+  <main class="container">
+    <!-- Seção: Resumo do Mês -->
+    <section id="resumoMes" class="secao">
       <h2>Resumo do Mês</h2>
-      <div class="resumo-boxes">
-        <div class="box">💸 Gastos</div>
-        <div class="box">🛒 Feira do Mês</div>
-        <div class="box">📈 Investimentos</div>
-      </div>
+      <canvas id="graficoResumo"></canvas>
     </section>
+  
+    <!-- Seção: Investimentos -->
+    <section id="investimentos" class="secao">
+      <h2>Adicionar Investimento</h2>
 
-    <section id="graficos">
-      <h2>Gráficos de Desempenho</h2>
-      <div class="grafico-container">
-        <canvas id="graficoMensal"></canvas>
+      <form id="formInvestimento" class="form-investimento">
+        <input type="text" id="nomeInvestimento" placeholder="Nome do investimento" required />
+        <input type="number" id="valorInvestimento" placeholder="Valor (R$)" required />
+        <input type="month" id="mesInvestimento" required />
+        <button type="submit" id="btnAddInvestimento">Adicionar</button>
+      </form>
+
+      <div class="divider"></div>
+
+      <h2>Investimentos</h2>
+      <div id="listaInvestimentos">
+        <!-- Investimentos adicionados aparecerão aqui -->
       </div>
-    </section>
 
-    <section id="historico">
+      <a href="investimentos.html" class="btn-ver-investimentos">Ver Investimentos</a>
+    </section>
+  
+    <!-- Seção: Histórico Mensal -->
+    <section id="historicoMensal" class="secao">
       <h2>Histórico Mensal</h2>
-      <div class="historico-lista">
-        <!-- Lista gerada dinamicamente -->
+      <div id="listaHistorico">
+        <!-- Dados mensais serão exibidos aqui -->
       </div>
     </section>
-
-    <section id="relatorios">
-      <h2>Relatórios PDF</h2>
-      <button id="exportarPdf">📄 Exportar Relatório</button>
-    </section>
-
-    <section id="comparativo">
+  
+    <!-- Seção: Comparativo Entre Meses -->
+    <section id="comparativoMeses" class="secao">
       <h2>Comparativo Entre Meses</h2>
-      <div id="comparativo-container">
-        <!-- Comparação dinâmica -->
-      </div>
+      <canvas id="graficoComparativo"></canvas>
     </section>
-
-    <section id="aposentadoria">
+  
+    <!-- Seção: Previsão de Aposentadoria -->
+    <section id="previsaoAposentadoria" class="secao">
       <h2>Previsão de Aposentadoria</h2>
-      <p>Simule sua aposentadoria com base nos seus investimentos e rendimentos atuais.</p>
+      <div id="resultadoPrevisao">
+        <!-- Exibe o cálculo estimado da aposentadoria -->
+      </div>
+      <button id="calcularPrevisao">Calcular Previsão</button>
+    </section>
+  
+    <!-- Seção: Relatório PDF -->
+    <section id="relatorioPDF" class="secao">
+      <h2>Gerar Relatório em PDF</h2>
+      <button id="exportarPdfCompleto">📄 Exportar Tudo em PDF</button>
     </section>
   </main>
-
-  <!-- Footer Único com botão de logout -->
+  
+  <!-- Footer -->
   <footer class="footer">
     <button id="btnLogout" class="btn-logout">Sair da plataforma</button>
     <p>© 2025 Plataforma Financeira. Todos os direitos reservados.</p>
