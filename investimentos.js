@@ -13,7 +13,7 @@ onAuthStateChanged(auth, (user) => {
 
 // Voltar para a página principal
 document.getElementById("btnVoltar").addEventListener("click", () => {
-  window.location.href = "index.html";
+  window.location.href = "plataforma.html";
 });
 
 // Carregar investimentos
